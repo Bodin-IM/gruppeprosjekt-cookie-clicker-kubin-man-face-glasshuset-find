@@ -1,6 +1,15 @@
-#cookieBtn {
+.cookieBtn {
     position: fixed;
     height: 250px;
     width: 250px;
     display: flex;
+}
+
+
+#cookies {
+    position: fixed;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    top: 30%;
 }
