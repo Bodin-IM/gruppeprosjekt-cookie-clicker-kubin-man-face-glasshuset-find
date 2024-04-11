@@ -1,13 +1,14 @@
 var score = 0;
 
-var cookie = document.getElementById("cookieBtn");
+const cookie = document.getElementById("cookieBtn");
+const scoreCounter = document.getElementById("score")
+console.Log("yes")
 
-function clicked() {
-    alert("GAY!");
+
+
+function clickedCookie() {
     score++;
+    scoreCounter.innerHTML = score;
+    cookie.style.left = Math.floor(Math.random() * 100) + "%"
+    cookie.style.top = Math.floor(Math.random() * 100) + "%"
 }
-
-
-
-
-cookie.addEventListener('click', startGame);
