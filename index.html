@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie clicker</title>
+</head>
+<body>
+    <div id="idle">
+        <img id="img" src="guns/idle.png" id="idle_img">
+    </div>
+
+    <button id="shoot">shoot</button>
+    <button id="reload">reload</button>
+    <div id="bullet_numbers">boolets: 9</div>
+
+    <script>
+        var max_bullets = 9
+        var bullets = max_bullets
+        var canshoot = true
+        var canreload = false
+        var idleimg = document.getElementById("idle")
+        
+        var bulletHTML = document.getElementById("bullet_numbers")
+
+        function shootchangeImage() {
+            document.getElementById('img').src="guns/shooting0.png";
+            canshoot = false
+            bullets --
+            bulletHTML.innerHTML = "boolets: " + bullets
+            if (bullets >= 1) {
+                //document.getElementById('img').src="guns/shooting1.png";
+                setTimeout(shoot_timeout_func0, 100)
+            } else {
+                setTimeout(no_ammo, 100)
+            }
+        }
+        function shoot_timeout_func0() {
+            document.getElementById('img').src="guns/shooting1.png";
+            setTimeout(shoot_timeout_func1, 100)
+            
+            
+        }
+        function shoot_timeout_func1() {
+            document.getElementById('img').src="guns/idle.png";
+            canshoot = true
+            if (bullets <= 0) {
+                document.getElementById('img').src="guns/reload3.png";
+            }
+        }
+        function reloadchangeImage() {
+            document.getElementById('img').src="guns/reload0.png";
+            setTimeout(reload_timeout_func0, 100)
+            canshoot = false
+        }
+        function no_ammo() {
+            if (bullets <= 0) {
+                canshoot = false
+                document.getElementById('img').src="guns/reload6.png";
+            }
+        }
+        function reload_timeout_func0() {
+            document.getElementById('img').src="guns/reload1.png";
+            setTimeout(reload_timeout_func1, 100)
+        }
+        function reload_timeout_func1() {
+            document.getElementById('img').src="guns/reload2.png";
+            setTimeout(reload_timeout_func2, 100)
+        }
+        function reload_timeout_func2() {
+            document.getElementById('img').src="guns/reload3.png";
+            setTimeout(reload_timeout_func3, 100)
+        }
+        function reload_timeout_func3() {
+            document.getElementById('img').src="guns/reload4.png";
+            setTimeout(reload_timeout_func4, 100)
+        }
+        function reload_timeout_func4() {
+            document.getElementById('img').src="guns/reload5.png";
+            setTimeout(reload_timeout_func5, 100)
+        }
+        function reload_timeout_func5() {
+            document.getElementById('img').src="guns/reload6.png";
+            setTimeout(reload_timeout_func6, 100)
+        }
+        function reload_timeout_func6() {
+            document.getElementById('img').src="guns/reload7.png";
+            setTimeout(reload_timeout_func6, 100)
+        }
+        function reload_timeout_func6() {
+            document.getElementById('img').src="guns/idle.png";
+            bullets = max_bullets;
+            canshoot = true;
+            bulletHTML.innerHTML = "boolets: " + bullets
+        }
+        function shootshoot() {
+            no_ammo();
+            if (canshoot == true)  {
+                shootchangeImage();
+            }
+        }
+       
+        
+        reload.addEventListener("click",reloadchangeImage);
+
+        shoot.addEventListener("click",shootshoot);
+
+
+    </script>
+</body>
+</html>
