@@ -1,8 +1,49 @@
+@keyframes moveCookie {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+        display: none;
+    }
+}
+
+
+.cookieDefault {
+    position: fixed;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    animation-name: moveCookie;
+    animation-duration: 3.5s;
+    animation-timing-function: linear;
+    left: 100%;
+    background: none;
+    border-width: 0px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 .cookieBtn {
     position: fixed;
     height: 250px;
     width: 250px;
     display: flex;
+    animation-name: moveCookie;
+    animation-duration: 3.5s;
+    animation-timing-function: linear;
+    left: 100%;
+    background: none;
+    border-width: 0px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 
@@ -12,4 +53,43 @@
     height: 70%;
     display: flex;
     top: 30%;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+}
+
+.cookieImg {
+    width: 100%;
+    height: 100%;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+
+#foreground {
+    position: fixed;
+    z-index: 99999999;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    height: 110%;
+    width: 100%;
+    top: 0px;
+}
+
+
+
+body {
+    background-color: #323232;
 }
