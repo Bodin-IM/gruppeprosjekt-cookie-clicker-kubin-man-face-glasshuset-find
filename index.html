@@ -18,14 +18,14 @@
         var max_bullets = 9
         var bullets = max_bullets
         var canshoot = true
-        var canreload = false
+        var canreload = true
         var idleimg = document.getElementById("idle")
         
         var bulletHTML = document.getElementById("bullet_numbers")
 
         function shootchangeImage() {
             document.getElementById('img').src="guns/shooting0.png";
-            canshoot = false
+            canshoot = false;
             bullets --
             bulletHTML.innerHTML = "boolets: " + bullets
             if (bullets >= 1) {
@@ -43,20 +43,27 @@
         }
         function shoot_timeout_func1() {
             document.getElementById('img').src="guns/idle.png";
-            canshoot = true
+            canshoot = true;
+            canreload = true;
             if (bullets <= 0) {
                 document.getElementById('img').src="guns/reload3.png";
             }
         }
         function reloadchangeImage() {
             document.getElementById('img').src="guns/reload0.png";
-            setTimeout(reload_timeout_func0, 100)
-            canshoot = false
+            setTimeout(reload_timeout_func0, 100);
+            canshoot = false;
+            canreload = false
         }
         function no_ammo() {
             if (bullets <= 0) {
                 canshoot = false
                 document.getElementById('img').src="guns/reload6.png";
+            }
+        }
+        function max_ammo() {
+            if (bullets == max_bullets) {
+                canreload = false
             }
         }
         function reload_timeout_func0() {
@@ -91,6 +98,7 @@
             document.getElementById('img').src="guns/idle.png";
             bullets = max_bullets;
             canshoot = true;
+            canreload = true;
             bulletHTML.innerHTML = "boolets: " + bullets
         }
         function shootshoot() {
@@ -99,9 +107,16 @@
                 shootchangeImage();
             }
         }
+
+        function reloadreload() {
+            max_ammo();
+            if (canreload == true) {
+                reloadchangeImage();
+            }
+        }
        
         
-        reload.addEventListener("click",reloadchangeImage);
+        reload.addEventListener("click",reloadreload);
 
         shoot.addEventListener("click",shootshoot);
 
