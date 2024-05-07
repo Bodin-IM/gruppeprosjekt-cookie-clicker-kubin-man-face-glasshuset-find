@@ -146,3 +146,50 @@ body {
     align-items: center;
     flex-wrap: wrap;
 }
+
+
+
+#score {
+    display: flex;
+    position: fixed;
+    z-index: 999999999999999999999;
+    top: 20px;
+    left: 20px;
+    color: rgb(224, 202, 170);
+    border-width: 2px;
+    border-color: black;
+}
+
+
+#gunImg {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 99999999999999999999999999999999;
+    width: 350px;
+    height: 350px;
+
+}
+
+
+#gunElements {
+    display: flex;
+    position: fixed;
+    z-index: 99999999999999999999999999999999;
+    height: 600px;
+    width: 600px;
+    flex-wrap: nowrap;
+    left: 75%;
+    top: 65%
+
+}
+
+
+#bullet_numbers {
+    position: fixed;
+    font-size: 40px;
+    flex-wrap: wrap;
+    top: 90%;
+    left: 75%;
+    font-family: monospace;
+}
