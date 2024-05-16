@@ -56,9 +56,11 @@ function spawn() { //spawns the cookie, then deletes it if it has been alive for
 }
 
 function clickedCookie(clickedCookieId) { //points + kill on click
-    score++;
-    scoreCounter.innerHTML = score;
-    document.getElementById(clickedCookieId).remove();
+    if (window.canshoot == true) {
+        score++;
+        scoreCounter.innerHTML = score;
+        document.getElementById(clickedCookieId).remove();
+    }
 }
 
 
