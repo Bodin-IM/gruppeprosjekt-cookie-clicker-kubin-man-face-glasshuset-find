@@ -193,3 +193,13 @@ body {
     left: 75%;
     font-family: monospace;
 }
+
+
+#gunElements {
+        -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            pointer-events: none;
+}
