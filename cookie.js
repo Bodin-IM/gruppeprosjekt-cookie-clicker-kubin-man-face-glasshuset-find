@@ -27,7 +27,7 @@ function fullscreenPrompt() {
     }
 }
 
-
+const chocolateChipImg = "./images/cookies/chocolate_chip.png"
 
 
 let spawnInterval = setInterval(spawn, 2500);
@@ -47,8 +47,9 @@ function spawn() { //spawns the cookie, then deletes it if it has been alive for
         newNode.setAttribute("onclick", "clickedCookie(this.id)");
         img = document.createElement("img")
         newNode.appendChild(img)
-        img.setAttribute("src", "./images/cookies/chocolate_chip.png")
+        img.setAttribute("src", chocolateChipImg)
         img.classList = "cookieImg"
+        img.id = (newNodeId + "_img")
         sleep(10000).then(() => { newNode.remove(); });
     } else {
         fullscreenPrompt()
@@ -59,9 +60,14 @@ function clickedCookie(clickedCookieId) { //points + kill on click
     if (window.canshoot == true) {
         score++;
         scoreCounter.innerHTML = score;
-        document.getElementById(clickedCookieId).remove();
+        document.getElementById(clickedCookieId).setAttribute("onclick", "alreadyClicked()")
+        document.getElementById(clickedCookieId + "_img").setAttribute("src", "./images/cookies/broken_chocolate_chip.png");
+        document.getElementById(clickedCookieId).classList.add("paused", "brokenCookie")
     }
 }
 
 
 
+function alreadyClicked() {
+    print("this cookie has already been clicked 😱")
+}

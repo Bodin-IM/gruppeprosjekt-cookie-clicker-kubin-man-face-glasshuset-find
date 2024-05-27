@@ -108,7 +108,6 @@ window.addEventListener('load', function () {
     console.log('page loaded');
     window.addEventListener('click', function () {    
         shootshoot()
-        console.log("page clickd!!! x3")
     });
 });
 
@@ -117,7 +116,7 @@ window.addEventListener('load', function () {
 function checkKey(e) {
     if (e.code == "KeyR") {
         reloadreload()
-        console.log("WORKS!!")
+        console.log("reload!!")
     }
 }
 
