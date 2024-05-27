@@ -5,6 +5,7 @@ var spawnCount = 0;
 const cookie = document.getElementById("cookieBtn");
 const scoreCounter = document.getElementById("score");
 
+var paused = true
 fullscreenPrompt()
 
 
@@ -12,6 +13,7 @@ function toggleFullScreen() {
     document.getElementById("promptBackground").style.display = "none"
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
+        paused = false
     }
 }
 
@@ -22,8 +24,10 @@ function sleep(ms) {
 function fullscreenPrompt() {
     if (!document.fullscreenElement) {
         document.getElementById("promptBackground").style.display = "flex"
+        paused = true
     } else {
         document.getElementById("promptBackground").style.display = "none"
+        paused = false
     }
 }
 
@@ -34,7 +38,7 @@ let spawnInterval = setInterval(spawn, 2500);
 let fullscreenInterval = setInterval(fullscreenPrompt, 10);
 
 function spawn() { //spawns the cookie, then deletes it if it has been alive for too long
-    if (document. fullscreenElement) {
+    if (paused == false) {
     
         spawnCount++;
         let newNode = document.createElement("button")
@@ -58,16 +62,18 @@ function spawn() { //spawns the cookie, then deletes it if it has been alive for
 
 function clickedCookie(clickedCookieId) { //points + kill on click
     if (window.canshoot == true) {
-        score++;
-        scoreCounter.innerHTML = score;
-        document.getElementById(clickedCookieId).setAttribute("onclick", "alreadyClicked()")
-        document.getElementById(clickedCookieId + "_img").setAttribute("src", "./images/cookies/broken_chocolate_chip.png");
-        document.getElementById(clickedCookieId).classList.add("paused", "brokenCookie")
+        if (paused == false) {
+            score++;
+            scoreCounter.innerHTML = score;
+            document.getElementById(clickedCookieId).setAttribute("onclick", "alreadyClicked()")
+            document.getElementById(clickedCookieId + "_img").setAttribute("src", "./images/cookies/broken_chocolate_chip.png");
+            document.getElementById(clickedCookieId).classList.add("paused", "brokenCookie")
+        }
     }
 }
 
 
 
 function alreadyClicked() {
-    print("this cookie has already been clicked 😱")
+    console.log("this cookie has already been clicked 😱")
 }

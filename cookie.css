@@ -219,3 +219,57 @@ body {
             user-select: none;
             pointer-events: none;
 }
+
+
+#shop {
+    button {
+        background-color: rgb(116, 83, 46);
+        border-color:rgb(96, 66, 29);
+        border-style: solid;
+        border-width: 4.5px;
+        font-size: 50px;
+        position: fixed;
+        transition: 250ms;
+        margin: 10px;
+        width: 200px;
+        margin-top: 125px;
+        color: black;
+
+        &:hover {
+            background-color: rgb(96, 66, 29);
+            border-color: rgb(116, 83, 46);
+            font-size: 60px;
+            width: 250px;
+        }
+    }
+}
+
+
+#leftSide {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    margin-top: 250px;
+    margin-left: 75px;
+    left: 10%;
+    top: 0px;
+}
+
+.btnFag {
+    display: flex;
+    z-index: 99999999998;
+    text-wrap: nowrap;
+    margin: 50px;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    background-color: rgb(126, 61, 14);
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+    border-style:groove;
+    font-size: x-large;
+}

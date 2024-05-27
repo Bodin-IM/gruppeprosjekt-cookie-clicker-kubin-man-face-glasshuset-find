@@ -87,7 +87,9 @@ function reload_timeout_func6() {
 function shootshoot() {
     no_ammo();
     if (canshoot == true) {
-        shootchangeImage();
+        if (window.paused == false) {
+            shootchangeImage();
+        }
     }
 }
 
